@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whyaland Airlines | Brick Rigs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #07111f;
+      color: #e5f4ff;
+    }
+
+    header {
+      background: rgba(4, 13, 25, 0.92);
+      color: white;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #38bdf8;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(rgba(5, 12, 24, 0.25), rgba(5, 12, 24, 0.75)),
+        url("hero.png");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero-content {
+      background: rgba(7, 17, 31, 0.45);
+      backdrop-filter: blur(8px);
+      padding: 35px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.18);
+      max-width: 850px;
+    }
+
+    .hero-content h1 {
+      font-size: 58px;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #dff7ff;
+    }
+
+    .btn {
+      background: #38bdf8;
+      color: #07111f;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #7dd3fc;
+    }
+
+    .booking {
+      background: #0f2035;
+      width: 85%;
+      margin: -60px auto 50px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      position: relative;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .booking h2 {
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      padding: 14px;
+      border: 1px solid #244866;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #07111f;
+      color: white;
+    }
+
+    .booking-form button {
+      background: #38bdf8;
+      color: #07111f;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .booking-form button:hover {
+      background: #7dd3fc;
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 35px;
+      color: #e5f4ff;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #0f2035;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+      text-align: center;
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #38bdf8;
+    }
+
+    .card p {
+      line-height: 1.6;
+      color: #cfe9f7;
+    }
+
+    .routes .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 15px;
+    }
+
+    .about {
+      background: linear-gradient(135deg, #0f2035, #12344d);
+      border-radius: 30px;
+      margin: 30px 10%;
+      text-align: center;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .about p {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #dff7ff;
+    }
+
+    footer {
+      background: #040d19;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero-content h1 {
+        font-size: 38px;
+      }
+
+      .booking-form,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .booking {
+        width: 92%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Whyaland Airlines</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#book">Book</a>
+      <a href="#routes">Routes</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Fly Beyond Imagination</h1>
+      <p>A Brick Rigs airline flying between Whyaland and Canyon.</p>
+      <a href="#book" class="btn">Book Your Brick Flight</a>
+    </div>
+  </section>
+
+  <div class="booking" id="book">
+    <h2>Book a Route</h2>
+    <form class="booking-form" id="bookingForm">
+      <select id="from" required>
+        <option value="Whyaland" selected>Whyaland</option>
+        <option value="Canyon">Canyon</option>
+      </select>
+      <select id="to" required>
+        <option value="Canyon" selected>Canyon</option>
+        <option value="Whyaland">Whyaland</option>
+      </select>
+      <input type="date" required />
+      <select required>
+        <option value="">Passengers</option>
+        <option>1 Passenger</option>
+        <option>2 Passengers</option>
+        <option>3 Passengers</option>
+        <option>4+ Passengers</option>
+      </select>
+      <button type="submit">Search Flights</button>
+    </form>
+  </div>
+
+  <section>
+    <h2 class="section-title">Why Fly With Us?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Brick Rigs Ready</h3>
+        <p>Built for your Brick Rigs world, with routes made for roleplay and airport adventures.</p>
+      </div>
+      <div class="card">
+        <h3>Two Main Routes</h3>
+        <p>Simple and clear flights: Canyon to Whyaland, and Whyaland to Canyon.</p>
+      </div>
+      <div class="card">
+        <h3>Imagination Flights</h3>
+        <p>Not just travel. Every flight is a small story in your own airline universe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="routes" id="routes">
+    <h2 class="section-title">Available Routes</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="route1.png" alt="Canyon to Whyaland" />
+        <h3>Canyon → Whyaland</h3>
+        <p>Depart from Canyon and fly into the futuristic Whyaland airport.</p>
+      </div>
+      <div class="card">
+        <img src="route2.png" alt="Whyaland to Canyon" />
+        <h3>Whyaland → Canyon</h3>
+        <p>Leave Whyaland and enjoy a scenic flight toward the Canyon mountains.</p>
+      </div>
+      <div class="card">
+        <img src="hero.png" alt="Inside the plane" />
+        <h3>In-Flight View</h3>
+        <p>Relax inside the cabin and enjoy the view from your Brick Rigs aircraft.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">About Whyaland Airlines</h2>
+    <p>
+      Whyaland Airlines is a fictional Brick Rigs airline created for fun, roleplay, and world building.
+      It currently operates two routes only: Canyon to Whyaland and Whyaland to Canyon.
+      Simple, clean, and ready for your next Brick Rigs airport adventure.<br><br><strong>Made by Whyaland by Whyacat.</strong>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Whyaland Airlines. Hosted on Real Life RP.</p>
+  </footer>
+
+  <script>
+    const from = document.getElementById("from");
+    const to = document.getElementById("to");
+
+    function fixRoute(changed) {
+      if (from.value === to.value) {
+        if (changed === "from") {
+          to.value = from.value === "Whyaland" ? "Canyon" : "Whyaland";
+        } else {
+          from.value = to.value === "Whyaland" ? "Canyon" : "Whyaland";
+        }
+      }
+    }
+
+    from.addEventListener("change", () => fixRoute("from"));
+    to.addEventListener("change", () => fixRoute("to"));
+
+    document.getElementById("bookingForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const webhookURL = "https://discord.com/api/webhooks/1508166881100562535/1mgvALkPpCAvrn4CxRBsllDm-Z7tjXPWXlBUF_Uq4nS_sCmYV7sQvJGp-44QhuBCUwOW";
+
+      const date = document.querySelector('input[type="date"]').value;
+      const passengers = document.querySelectorAll('select')[2].value;
+
+      const message = {
+        embeds: [{
+          title: "✈️ New Whyaland Airlines Booking",
+          color: 3447003,
+          fields: [
+            {
+              name: "Route",
+              value: `${from.value} → ${to.value}`,
+              inline: false
+            },
+            {
+              name: "Date",
+              value: date || "Not specified",
+              inline: true
+            },
+            {
+              name: "Passengers",
+              value: passengers || "Unknown",
+              inline: true
+            }
+          ],
+          footer: {
+            text: "Hosted on Real Life RP"
+          },
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      try {
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(message)
+        });
+
+        alert("Booking sent successfully to Whyaland Airlines Discord ✈️");
+      } catch (error) {
+        alert("Failed to send booking.");
+        console.error(error);
+      }
+    });
+  </script>
+
+</body>
+</html>
